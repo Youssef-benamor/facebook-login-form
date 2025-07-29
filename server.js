@@ -5,6 +5,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 
 const app = express();
+require("dotenv").config();
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,8 +17,8 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("✅ Connected to MongoDB"))
-  .catch((err) => console.error("❌ MongoDB error:", err));
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB error:", err));
 
 // Schema
 const LoginSchema = new mongoose.Schema({
